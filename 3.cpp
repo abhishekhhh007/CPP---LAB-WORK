@@ -11,43 +11,48 @@ using namespace std;
 
 class Rectangle {
 private:
-    int length;
-    int width;
+    double length;
+    double width;
 
 public:
-    
+
     Rectangle() {
         length = 0;
         width = 0;
-        
+        cout << "Default constructor called." << endl;
     }
 
-   
-    Rectangle(int l, int w) {
+
+    Rectangle(double l, double w) {
         length = l;
         width = w;
-        
+        cout << "Parameterized constructor called." << endl;
     }
 
-    
-    void display() {
+
+    void display() const {
         cout << "Length: " << length << ", Width: " << width << endl;
     }
 
-    
+
     ~Rectangle() {
-        cout << "Destructor called  Length: " << length
-             << ", Width: " << width << endl;
+        cout << "Destructor called for Rectangle with Length = " << length
+             << " and Width = " << width << endl;
     }
 };
 
 int main() {
-    
+
     Rectangle rect1;
     rect1.display();
 
-    
-    Rectangle rect2(10, 5);
-    rect2.display();
-}
+    cout << endl;
 
+
+    Rectangle rect2(10.5, 5.2);
+    rect2.display();
+
+    cout << endl;
+
+    cout << "Program ending, destructors will be called automatically." << endl;
+}
